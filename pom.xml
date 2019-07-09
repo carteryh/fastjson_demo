@@ -21,16 +21,24 @@
 		<spring-cloud.version>Greenwich.SR1</spring-cloud.version>
 	</properties>
 	<dependencies>
+		<!-- https://mvnrepository.com/artifact/com.alibaba/fastjson -->
+		<dependency>
+			<groupId>com.alibaba</groupId>
+			<artifactId>fastjson</artifactId>
+			<version>1.2.58</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/joda-time/joda-time -->
+		<dependency>
+			<groupId>joda-time</groupId>
+			<artifactId>joda-time</artifactId>
+			<version>2.10.3</version>
+		</dependency>
+
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot2-config-logback</artifactId>
 			<version>0.0.2-SNAPSHOT</version>
-		</dependency>
-
-		<dependency>
-			<groupId>com.lz</groupId>
-			<artifactId>lz-common</artifactId>
-			<version>1.6.0-SNAPSHOT</version>
 		</dependency>
 
 		<dependency>
@@ -44,10 +52,10 @@
 		</dependency>
 
 
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-data-jpa</artifactId>
-		</dependency>
+<!--		<dependency>-->
+<!--			<groupId>org.springframework.boot</groupId>-->
+<!--			<artifactId>spring-boot-starter-data-jpa</artifactId>-->
+<!--		</dependency>-->
 
 		<dependency>
 			<groupId>org.apache.commons</groupId>
