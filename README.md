@@ -113,6 +113,30 @@ fastjson自定义反序列化实现类,demo对一个字符串进行日期格式�
 
 4.嵌套对象转map,测试类MapTest
 
+   a.嵌套对象转map方法
+   该方法把嵌套对象转为单层map。
+           
+    Map<String, Object> map = ObjectToMapUtils.trfMap(json, ".");
+
+   b.获取嵌套对象值
+   
+   该方法不需要转为map，直接配置相关的key,获取对应的value。
+           
+    //获取对象相应值,key中无数组情况
+    String condition = "[{\"key\": \"data.page.current\"}]";
+    List<SearchCondition> conditions = JSON.parseArray(condition, SearchCondition.class);
+    Object value = ObjectToMapUtils.getObjValue(json, conditions, null);
+    //输出 1
+    System.out.println(value);
+    
+    //获取对象对应value值的数组
+    condition = "[{\"key\": \"data.rows.name\", \"value\":\"流程步骤名称\"}]";
+    conditions = JSON.parseArray(condition, SearchCondition.class);
+    Object obj = ObjectToMapUtils.getObjValue(json, conditions, null);
+    System.out.println(obj);
+           
+   代码如下:
+
         //测试json,可以为一个Object对像
         String json = "{\"success\":0,\"errorMsg\":\"错误消息\",\"data\":{\"total\":\"总记录数\",\"page\":{\"size\":10,\"current\":1},\"rows\":[{\"id\":\"任务ID\",\"workName\":\"任务名称\",\"assigneeName\":\"经办人姓名\",\"name\":\"流程步骤名称\",\"processInstanceInitiatorName\":\"发起人\",\"processInstanceStartTime\":\"发起时间\",\"createTime\":\"到达时间\",\"dueDate\":\"截止时间\"},{\"id\":\"ID\",\"workName\":\"名称\",\"assigneeName\":\"经办人\",\"name\":\"流程\",\"processInstanceInitiatorName\":\"发起人\",\"processInstanceStartTime\":\"发起\",\"createTime\":\"到达\",\"dueDate\":\"截止\"}]}}";
 
